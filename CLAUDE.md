@@ -52,6 +52,30 @@ Before working on a task, check for these files and read the ones that exist:
 
 These are maps, not proof: confirm behavior in the code before relying on them.
 
+# Default workflow
+ 
+When asked to build a feature, fix a bug, refactor, or work on a ticket, follow these
+steps without waiting to be told each one. Skip a step only when it clearly doesn't
+apply (a one-line fix doesn't need a verification plan).
+ 
+1. **Understand the task.** If it references a GitHub issue, read it with
+   `gh issue view <N>`. If the requirements are ambiguous, summarize your
+   understanding and ask before writing code.
+2. **Plan verification** with `verification-planning` for any non-trivial change.
+3. **Branch.** Create a branch with `gt create`; never work directly on `main`/`master`.
+4. **Implement** following the Code guidelines and Testing sections above.
+5. **Clean up** the changed code with `simplify`.
+6. **Security check.** If the change touches authentication, passwords, personal data,
+   payments, permissions, or CI/deploy, run `security-audit` on the branch diff.
+7. **Commit** with conventional commits (`type(scope): subject`).
+8. **Open PRs.** Respect the 300-line limit, splitting into stacked PRs with `gt`.
+   Write PR descriptions with `humanizer`. Add `Closes #N` when there is a GitHub issue.
+   Submit with `gt submit`.
+This workflow is for your own development work. When a skill below is in use (for
+example `github-resolution` or `release`), follow that skill's steps instead.
+ 
+
+
 # Skills
 
 Use these skills in the situations below and follow their own steps.
